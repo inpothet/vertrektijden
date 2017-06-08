@@ -30,6 +30,7 @@ $bus_data = json_decode($bus, true);
 <head>
     <title><?php echo $app?></title>
     <link href="assets/css/app.css" type="text/css" rel="stylesheet">
+    <meta http-equiv="refresh" content="10">
 </head>
 <table>
 
@@ -105,5 +106,4 @@ foreach (array_slice($train_data,0,3) as $key => $train_value) {
     }
     ?>
     </tbody>
-</table>
-<script src=""></script>
+</table><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

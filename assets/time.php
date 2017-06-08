@@ -25,7 +25,6 @@ $bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$tow
 // Decode requested json
 $train_data = json_decode($train, true);
 $bus_data = json_decode($bus, true);
-?>
 foreach (array_slice($train_data,0,3) as $key => $train_value) {
     echo "<tr>";
     //Notification
