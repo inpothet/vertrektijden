@@ -43,7 +43,9 @@ $bus_data = json_decode($bus, true);
     </thead>
     <tbody id="vertrek_trein">
     <?php
+    $t_i = "0";
 foreach ($train_data as $key => $train_value) {
+    if(++$t_i > 4) break;
     echo "<tr>";
     //Notification
         if (isset( $train_value['Opmerkingen']['Opmerking'])){
@@ -80,11 +82,13 @@ foreach ($train_data as $key => $train_value) {
 ?>
 
     <?php
+    $b_1 = "0";
     foreach ($bus_data['BTMF'] as $key => $bus_value) {
+        if(++$b_i > 5) break;
         echo "<tr>";
         echo '<td><img src="assets/img/' . $bus_value['Departures'][0]['AgencyCode'] . '.png" width="32px"></td>';
         echo "<td>" . $bus_value['Departures'][0]['TransportType'] . '</td>';
-        echo "<td>" . $bus_value['Departures'][0]['LineNumber'] . "</td>";
+        echo "<td class='spoor'>" . $bus_value['Departures'][0]['LineNumber'] . "</td>";
         echo "<td>" . $bus_value['Departures'][0]['Destination'] . "</td>";
         echo "<td>" . substr($bus_value['Departures'][0]['PlannedDeparture'],11,5) . "</td>";
         echo "<td>" . "</td>";

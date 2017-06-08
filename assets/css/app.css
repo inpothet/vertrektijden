@@ -1,7 +1,5 @@
 .spoor{
-    background-color: #fff;
-    background-image: url('img/blokje.png);
-    background-repeat: no-repeat;
+    background: #fff url('img/blokje.png') no-repeat;
     color: #009;
     text-transform: lowercase;
     padding: 5px 0;
