@@ -1,12 +1,14 @@
+
 <?php
 // Load Config
-$ini = parse_ini_file('config/config.ini');
+$ini = parse_ini_file('assets/config/config.ini');
 // define config value's
 $station = $ini[station];
 $town = $ini[town];
 $stop = $ini[stop];
 $key = $ini[api_key];
 $version = $ini[version];
+$app = $ini[app_name];
 
 $opts = array(
     'http'=>array(
@@ -19,12 +21,16 @@ $opts = array(
 $context = stream_context_create($opts);
 // request Json for train and bus
 $train = file_get_contents("https://api.vertrektijd.info/ns/_departures?station=$station", false,$context);
-//$bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$town/$stop", false,$context);
-$bus = file_get_contents("test.json", false,$context);
+$bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$town/$stop", false,$context);
+//$bus = file_get_contents("test.json", false,$context);
 // Decode requested json
 $train_data = json_decode($train, true);
 $bus_data = json_decode($bus, true);
 ?>
+<head>
+    <title><?php echo $app?></title>
+    <link href="assets/css/app.css" type="text/css" rel="stylesheet">
+</head>
 <table>
     <caption>Vertrektijden eerstvolgende treinen</caption>
     <thead>
@@ -63,7 +69,7 @@ foreach ($train_data as $key => $train_value) {
         $actual = substr($train_value['VertrekTijd'], 11, 5);
     }
 
-    echo '<td><img src="img/'. $train_value['Vervoerder'] .'.png" width="32px"></td>';
+    echo '<td><img src="assets/img/'. $train_value['Vervoerder'] .'.png" width="32px"></td>';
     echo "<td>" . $train_value['TreinSoort'] . '</td>';
     echo "<td class='spoor'>" . $train_value['VertrekSpoor']['@text'] . "</td>";
     echo "<td>" . $train_value['EindBestemming'] . "<br><small>". $train_value['RouteTekst'] ."</small></td>";
@@ -76,7 +82,7 @@ foreach ($train_data as $key => $train_value) {
     <?php
     foreach ($bus_data['BTMF'] as $key => $bus_value) {
         echo "<tr>";
-        echo '<td><img src="img/' . $bus_value['Departures'][0]['AgencyCode'] . '.png" width="32px"></td>';
+        echo '<td><img src="assets/img/' . $bus_value['Departures'][0]['AgencyCode'] . '.png" width="32px"></td>';
         echo "<td>" . $bus_value['Departures'][0]['TransportType'] . '</td>';
         echo "<td>" . $bus_value['Departures'][0]['LineNumber'] . "</td>";
         echo "<td>" . $bus_value['Departures'][0]['Destination'] . "</td>";
