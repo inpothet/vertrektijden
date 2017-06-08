@@ -97,5 +97,3 @@ foreach ($train_data as $key => $train_value) {
     ?>
     </tbody>
 </table>
-
-<img src="img/"
