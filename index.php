@@ -22,7 +22,8 @@ $context = stream_context_create($opts);
 // request Json for train and bus
 $train = file_get_contents("https://api.vertrektijd.info/ns/_departures?station=$station", false,$context);
 $bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$town/$stop", false,$context);
-//$bus = file_get_contents("test.json", false,$context);
+//$train = file_get_contents("assets/json/train.json", false,$context);
+//$bus = file_get_contents("assets/json/bus.json", false,$context);
 // Decode requested json
 $train_data = json_decode($train, true);
 $bus_data = json_decode($bus, true);
@@ -30,7 +31,6 @@ $bus_data = json_decode($bus, true);
 <head>
     <title><?php echo $app?></title>
     <link href="assets/css/app.css" type="text/css" rel="stylesheet">
-    <meta http-equiv="refresh" content="10">
 </head>
 <table>
 
@@ -39,7 +39,7 @@ $bus_data = json_decode($bus, true);
     <tr>
         <th>Vervoerder</th>
         <th>Type</th>
-        <th>Spoor</th>
+        <th>Spoor/lijn</th>
         <th>Eindbestemming</th>
         <th>vertrektijd</th>
         <th>Opmerkingen</th>
@@ -48,7 +48,39 @@ $bus_data = json_decode($bus, true);
     </thead>
     <tbody id="vertrek">
     <?php
-foreach (array_slice($train_data,0,3) as $key => $train_value) {
+    $train_data = array_slice($train_data, 0 , 4);
+    $bus_array = array();
+    foreach ($bus_data['BTMF'] as $key => $bus_value) {
+        $bus_array[] = $bus_value['Departures'][0];
+    }
+    $bus_array1 = array();
+    foreach ($bus_array as $key => $bus_value) {
+        $bus_number = array('@text' => $bus_value['LineNumber']);
+        $bus_dest =  explode(" via ",$bus_value['Destination']);
+        $bus_via = $bus_dest[1];
+        if (empty($bus_via)){
+            $bus_text = $bus_value['LineName'];
+        }
+        else{
+            $bus_text = $bus_value['LineName'] ." - ". $bus_dest[1];
+        }
+
+        $train_data[] = array('RitNummer' => $bus_value['DestinationCode'],
+            'VertrekTijd' => $bus_value['PlannedDeparture']."+0200",
+            'EindBestemming' => $bus_dest[0],
+            'TreinSoort' => $bus_value['TransportType'],
+            'RouteTekst' => $bus_text,
+            'Vervoerder' => $bus_value['AgencyCode'],
+            'VertrekSpoor' => $bus_number);
+    }
+    function do_compare($item1, $item2)
+    {
+        $ts1 = strtotime($item1['VertrekTijd']);
+        $ts2 = strtotime($item2['VertrekTijd']);
+        return $ts1 - $ts2;
+    }
+    usort($train_data, 'do_compare');
+foreach ($train_data as $key => $train_value) {
     echo "<tr>";
     //Notification
         if (isset( $train_value['Opmerkingen']['Opmerking'])){
@@ -67,43 +99,15 @@ foreach (array_slice($train_data,0,3) as $key => $train_value) {
     }else{
         $actual = substr($train_value['VertrekTijd'], 11, 5);
     }
-    //Train Type
-    if ($train_value['TreinSoort']== "Intercity"){
-        $train_type = "IC";
-    }else{
-        $actual = substr($train_value['VertrekTijd'], 11, 5);
-    }
 
-    echo '<td><img src="assets/img/'. $train_value['Vervoerder'] .'.png" width="32px"></td>';
+    echo '<td><img class="logo" src="assets/img/'. $train_value['Vervoerder'] .'.png"></td>';
     echo "<td>" . $train_value['TreinSoort'] . '</td>';
     echo "<td class='spoor'>" . $train_value['VertrekSpoor']['@text'] . "</td>";
-    echo "<td>" . $train_value['EindBestemming'] . "<br><small>". $train_value['RouteTekst'] ."</small></td>";
+    echo "<td class='text-center'>" . $train_value['EindBestemming'] . "<br><small>". $train_value['RouteTekst'] ."</small></td>";
     echo "<td>" . $actual . "</td>";
     echo "<td>" . $info . "</td>";
     echo "</tr>";
 }
-
-
-    foreach (array_slice($bus_data['BTMF'],4,1) as $key => $bus_value) {
-            echo "<tr>";
-            echo '<td><img src="assets/img/' . $bus_value['Departures'][0]['AgencyCode'] . '.png" width="32px"></td>';
-            echo "<td>" . $bus_value['Departures'][0]['TransportType'] . '</td>';
-            echo "<td class='spoor'>" . $bus_value['Departures'][0]['LineNumber'] . "</td>";
-            echo "<td>" . $bus_value['Departures'][0]['Destination'] . "</td>";
-            echo "<td>" . substr($bus_value['Departures'][0]['PlannedDeparture'],11,5) . "</td>";
-            echo "<td>" . "</td>";
-            echo "</tr>";
-    }
-    foreach (array_slice($bus_data['BTMF'],0,4) as $key => $bus_value) {
-            echo "<tr>";
-            echo '<td><img src="assets/img/' . $bus_value['Departures'][0]['AgencyCode'] . '.png" width="32px"></td>';
-            echo "<td>" . $bus_value['Departures'][0]['TransportType'] . '</td>';
-            echo "<td class='spoor'>" . $bus_value['Departures'][0]['LineNumber'] . "</td>";
-            echo "<td>" . $bus_value['Departures'][0]['Destination'] . "</td>";
-            echo "<td>" . substr($bus_value['Departures'][0]['PlannedDeparture'],11,5) . "</td>";
-            echo "<td>" . "</td>";
-            echo "</tr>";
-    }
     ?>
     </tbody>
 </table><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

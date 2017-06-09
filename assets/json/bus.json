@@ -1,0 +1,184 @@
+{
+  "TRAIN": [],
+  "BTMF": [{
+    "Station_Info": {
+      "StopCode": "65520010",
+      "StopName": "Deurne, Station",
+      "Town": "Deurne",
+      "Longitude": 5.7878917,
+      "Latitude": 51.4566641
+    },
+    "Departures": [{
+      "LineNumber": "28",
+      "LineName": "Meijel - Deurne",
+      "Destination": "Deurne ",
+      "DestinationCode": "L02815904",
+      "TransportType": "Bus",
+      "AgencyCode": "CXX",
+      "UpdateTime": "2017-06-09T10:37:18",
+      "PlannedDeparture": "2017-06-09T10:48:00",
+      "ExpectedDeparture": "2017-06-09T10:48:05",
+      "VehicleStatus": "DRIVING",
+      "StationStatus": "INTERMEDIATE",
+      "WheelchairAccessible": "ACCESSIBLE",
+      "LinePlanningNumber": "L028",
+      "JourneyNumber": 11
+    }, {
+      "LineNumber": "262",
+      "LineName": "Helenaveen - Deurne",
+      "Destination": "Helenaveen ",
+      "DestinationCode": "L26227123",
+      "TransportType": "Bus",
+      "AgencyCode": "CXX",
+      "UpdateTime": "2017-06-09T10:06:01",
+      "PlannedDeparture": "2017-06-09T11:11:00",
+      "ExpectedDeparture": "2017-06-09T11:11:00",
+      "VehicleStatus": "PLANNED",
+      "StationStatus": "INTERMEDIATE",
+      "WheelchairAccessible": "NOTACCESSIBLE",
+      "LinePlanningNumber": "L262",
+      "JourneyNumber": 6
+    }, {
+      "LineNumber": "28",
+      "LineName": "Meijel - Deurne",
+      "Destination": "Deurne ",
+      "DestinationCode": "L02815904",
+      "TransportType": "Bus",
+      "AgencyCode": "CXX",
+      "UpdateTime": "2017-06-09T10:26:01",
+      "PlannedDeparture": "2017-06-09T11:48:00",
+      "ExpectedDeparture": "2017-06-09T11:48:00",
+      "VehicleStatus": "PLANNED",
+      "StationStatus": "INTERMEDIATE",
+      "WheelchairAccessible": "ACCESSIBLE",
+      "LinePlanningNumber": "L028",
+      "JourneyNumber": 13
+    }, {
+      "LineNumber": "266",
+      "LineName": "Deurne - Someren - Geldrop",
+      "Destination": "Deurne ",
+      "DestinationCode": "L26615901",
+      "TransportType": "Bus",
+      "AgencyCode": "CXX",
+      "UpdateTime": "2017-06-09T09:50:01",
+      "PlannedDeparture": "2017-06-09T12:01:00",
+      "ExpectedDeparture": "2017-06-09T12:01:00",
+      "VehicleStatus": "PLANNED",
+      "StationStatus": "INTERMEDIATE",
+      "WheelchairAccessible": "NOTACCESSIBLE",
+      "LinePlanningNumber": "L266",
+      "JourneyNumber": 8
+    }]
+  }, {
+    "Station_Info": {
+      "StopCode": "65520011",
+      "StopName": "Deurne, Station",
+      "Town": "Deurne",
+      "Longitude": 5.7883925,
+      "Latitude": 51.4563568
+    },
+    "Departures": [{
+      "LineNumber": "262",
+      "LineName": "Helenaveen - Deurne",
+      "Destination": "Deurne Ziekenh ",
+      "DestinationCode": "L26215901",
+      "TransportType": "Bus",
+      "AgencyCode": "CXX",
+      "UpdateTime": "2017-06-09T10:32:05",
+      "PlannedDeparture": "2017-06-09T10:50:00",
+      "ExpectedDeparture": "2017-06-09T10:50:00",
+      "VehicleStatus": "DRIVING",
+      "StationStatus": "INTERMEDIATE",
+      "WheelchairAccessible": "NOTACCESSIBLE",
+      "LinePlanningNumber": "L262",
+      "JourneyNumber": 7
+    }]
+  }, {
+    "Station_Info": {
+      "StopCode": "65520012",
+      "StopName": "Deurne, Station",
+      "Town": "Deurne",
+      "Longitude": 5.7878917,
+      "Latitude": 51.4566641
+    },
+    "Departures": [{
+      "LineNumber": "28",
+      "LineName": "Meijel - Deurne",
+      "Destination": "Meijel Station ",
+      "DestinationCode": "L02816107",
+      "TransportType": "Bus",
+      "AgencyCode": "CXX",
+      "UpdateTime": "2017-06-09T09:56:02",
+      "PlannedDeparture": "2017-06-09T11:00:00",
+      "ExpectedDeparture": "2017-06-09T11:00:00",
+      "VehicleStatus": "PLANNED",
+      "StationStatus": "INTERMEDIATE",
+      "WheelchairAccessible": "ACCESSIBLE",
+      "LinePlanningNumber": "L028",
+      "JourneyNumber": 10
+    }]
+  }, {
+    "Station_Info": {
+      "StopCode": "65520020",
+      "StopName": "Deurne, Station",
+      "Town": "Deurne",
+      "Longitude": 5.7873444,
+      "Latitude": 51.4566031
+    },
+    "Departures": [{
+      "LineNumber": "266",
+      "LineName": "Deurne - Someren - Geldrop",
+      "Destination": "Geldrop Ziekenh ",
+      "DestinationCode": "L26616015",
+      "TransportType": "Bus",
+      "AgencyCode": "CXX",
+      "UpdateTime": "2017-06-09T10:36:36",
+      "PlannedDeparture": "2017-06-09T11:01:00",
+      "ExpectedDeparture": "2017-06-09T11:01:00",
+      "VehicleStatus": "DRIVING",
+      "StationStatus": "INTERMEDIATE",
+      "WheelchairAccessible": "NOTACCESSIBLE",
+      "LinePlanningNumber": "L266",
+      "JourneyNumber": 7
+    }]
+  }, {
+    "Station_Info": {
+      "StopCode": "65520210",
+      "StopName": "Deurne, Station",
+      "Town": "Deurne",
+      "Longitude": 5.7879205,
+      "Latitude": 51.456673
+    },
+    "Departures": [{
+      "LineNumber": "80",
+      "LineName": "Venlo - Deurne",
+      "Destination": "Venlo via Venray Station",
+      "DestinationCode": "5701",
+      "TransportType": "Bus",
+      "AgencyCode": "ARR",
+      "UpdateTime": "2017-06-09T10:37:01",
+      "PlannedDeparture": "2017-06-09T10:42:00",
+      "ExpectedDeparture": "2017-06-09T10:42:00",
+      "VehicleStatus": "ARRIVED",
+      "StationStatus": "FIRST",
+      "WheelchairAccessible": "UNKNOWN",
+      "LinePlanningNumber": "25080",
+      "JourneyNumber": 1050
+    }, {
+      "LineNumber": "80",
+      "LineName": "Venlo - Deurne",
+      "Destination": "Venlo via Venray Station",
+      "DestinationCode": "5701",
+      "TransportType": "Bus",
+      "AgencyCode": "ARR",
+      "UpdateTime": "2017-06-09T10:12:01",
+      "PlannedDeparture": "2017-06-09T11:12:00",
+      "ExpectedDeparture": "2017-06-09T11:12:00",
+      "VehicleStatus": "PLANNED",
+      "StationStatus": "FIRST",
+      "WheelchairAccessible": "UNKNOWN",
+      "LinePlanningNumber": "25080",
+      "JourneyNumber": 1054
+    }]
+  }]
+}

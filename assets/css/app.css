@@ -2,12 +2,14 @@
     background: #fff url('img/blokje.png') no-repeat;
     color: #009;
     text-transform: lowercase;
+    font-weight: bold;
     padding: 5px 0;
     border: 2px solid #009;
-    width: 40px;
+    width: 70px;
     text-align: center;
-    height: 40px;
-    max-width: 50px;
+    height: 70px;
+    max-width: 40px;
+    font-size: 200%;
     margin: 0 auto;}
 blink, .blink {
     -webkit-animation: blink 1s step-end infinite;
@@ -30,4 +32,12 @@ blink, .blink {
 
 @keyframes blink {
     67% { opacity: 0 }
+}
+.logo{
+    display: block;
+    margin: auto;
+    width: 32px;
+}
+.text-center{
+    text-align: center;
 }
