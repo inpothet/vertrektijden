@@ -25,7 +25,7 @@ $town = $ini[town];
     },1000);
 </script>
 <div class="tijden">
-    <table>
+    <table class="tijden">
         <thead>
         <tr id="header" class="even">
             <td class="tijd">Tijd</td>
@@ -40,5 +40,7 @@ $town = $ini[town];
 
         </tbody>
     </table>
+</div>
+<div>
 </div>
 <script src="assets/js/app.js"></script>
