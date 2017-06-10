@@ -9,9 +9,17 @@ red{color: red;
     background-color: #ffffff;
     color: #000099;
 }
+table {
+    border-collapse: collapse;
+}
+
+/* remove padding */
+td, th {
+    padding: 0;
+}
 .tijden{
-    position: absolute; top: 0; bottom: 0; left: 0; right: 0;
     width:100%;
+    position: fixed;top: 0; bottom: 0; left: 0; right: 0;
 }
 #colon { visibility:hidden }
 /* Row CSS*/
@@ -75,6 +83,7 @@ red{color: red;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     width: 150px;
+    float:right
 }
 /* Header CSS*/
 #header{
