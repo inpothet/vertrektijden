@@ -27,10 +27,9 @@ $app = $ini[app_name];
         <thead>
         <tr id="header">
             <td class="tijd">Tijd</td>
-            <td class="vervoer">Vervoerder</td>
-            <td class="type">Type</td>
-            <td class="spoor">Spoor/lijn</td>
             <td class="to_via">Eindbestemming</td>
+            <td class="spoor">Spoor</td>
+            <td class="vervoer">Vervoerder</td>
             <td>Opmerkingen</td>
             <td class="clock"><span id="hours"></span><span id="colon">:</span><span id="minutes"></span></td>
         </tr>

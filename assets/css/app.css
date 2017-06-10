@@ -1,8 +1,12 @@
-red{color: red;}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+red{color: red;
+    font-family: 'Open Sans', sans-serif;}
 #colon { visibility:hidden }
 /* Row CSS*/
 #departure td.to_via {
     width: 45%;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 10px;
 }
 #departure td.spoor{
     background: #fff url('img/blokje.png') no-repeat;
@@ -16,6 +20,7 @@ red{color: red;}
     height: 50px;
     max-width: 40px;
     font-size: 150%;
+    font-family: 'Open Sans', sans-serif;
     margin: 0 auto;}
 #departure td.tijd{
     text-align: center;
@@ -23,40 +28,52 @@ red{color: red;}
     min-width: 75px;
     font-weight: bold;
     font-size: 110%;
+    font-family: 'Open Sans', sans-serif;
     color: #009;
 }
-.tijden{
-    width: 100%;
+#departure td.vervoer{
+    font-size: 110%;
+    font-weight: bold;
+    color: #000099;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 10px;
 }
+
 .logo{
     width: 32px;
-    display: block;
-    margin: auto;
+    vertical-align:middle
 }
 .clock{
     font-weight: bold;
     background-color: #000099;
     color: white;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 /* Header CSS*/
 #header{
 }
 #header td.to_via{
     width: 45%;
+    padding-left: 10px;
+    font-family: 'Open Sans', sans-serif;
 }
 #header td.spoor{
     width: 50px;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 #header td.type{
     width: 60px;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 #header td.vervoer{
-    width: 90px;
-    text-align: center;
+    width: 120px;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 10px;
 }
 #header td.tijd{
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }

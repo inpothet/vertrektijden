@@ -17,13 +17,6 @@ $(document).ready(function(e) {
                     }else {
                         content += '<td class="tijd">' + res  + '</td>';
                     }
-                    content += '<td><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"></td>';
-                    content += '<td>' + tijd.TreinSoort + '</td>';
-                    if (Object.values(tijd.VertrekSpoor)[0] === "false"){
-                        content += '<td> </td>';
-                    }else {
-                        content += '<td class="spoor">' + Object.values(tijd.VertrekSpoor)[0]  + '</td>';
-                    }
                     if (typeof (tijd.RouteTekst) != "undefined"){
                         $text = 'via: '+ tijd.RouteTekst;
                     }
@@ -31,6 +24,12 @@ $(document).ready(function(e) {
                         $text = "&nbsp";
                     }
                     content += '<td class="to_via">' + tijd.EindBestemming + '<br><small>'+ $text +'</small></td>';
+                    if (Object.values(tijd.VertrekSpoor)[0] === "false"){
+                        content += '<td> </td>';
+                    }else {
+                        content += '<td class="spoor">' + Object.values(tijd.VertrekSpoor)[0]  + '</td>';
+                    }
+                    content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span></td>';
                     if (typeof(tijd.Opmerkingen) != "undefined"){
                         content += '<td>' + tijd.Opmerkingen.Opmerking + '</td>';
                     }else {
