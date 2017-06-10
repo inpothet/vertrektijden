@@ -1,43 +1,62 @@
-.spoor{
+red{color: red;}
+#colon { visibility:hidden }
+/* Row CSS*/
+#departure td.to_via {
+    width: 45%;
+}
+#departure td.spoor{
     background: #fff url('img/blokje.png') no-repeat;
     color: #009;
     text-transform: lowercase;
     font-weight: bold;
     padding: 5px 0;
     border: 2px solid #009;
-    width: 70px;
+    width: 50px;
     text-align: center;
-    height: 70px;
+    height: 50px;
     max-width: 40px;
-    font-size: 200%;
+    font-size: 150%;
     margin: 0 auto;}
-blink, .blink {
-    -webkit-animation: blink 1s step-end infinite;
-    -moz-animation: blink 1s step-end infinite;
-    -o-animation: blink 1s step-end infinite;
-    animation: blink 1s step-end infinite;
+#departure td.tijd{
+    text-align: center;
+    width: 7%;
+    min-width: 75px;
+    font-weight: bold;
+    font-size: 110%;
+    color: #009;
 }
-
-@-webkit-keyframes blink {
-    67% { opacity: 0 }
-}
-
-@-moz-keyframes blink {
-    67% { opacity: 0 }
-}
-
-@-o-keyframes blink {
-    67% { opacity: 0 }
-}
-
-@keyframes blink {
-    67% { opacity: 0 }
+.tijden{
+    width: 100%;
 }
 .logo{
+    width: 32px;
     display: block;
     margin: auto;
-    width: 32px;
 }
-.text-center{
+.clock{
+    font-weight: bold;
+    background-color: #000099;
+    color: white;
+    text-align: center;
+}
+/* Header CSS*/
+#header{
+}
+#header td.to_via{
+    width: 45%;
+}
+#header td.spoor{
+    width: 50px;
+    text-align: center;
+}
+#header td.type{
+    width: 60px;
+    text-align: center;
+}
+#header td.vervoer{
+    width: 90px;
+    text-align: center;
+}
+#header td.tijd{
     text-align: center;
 }

@@ -1,16 +1,4 @@
 [{
-  "RitNummer": "13529",
-  "VertrekTijd": "2017-06-09T10:34:00+0200",
-  "VertrekVertraging": "PT2M",
-  "VertrekVertragingTekst": "+2 min",
-  "EindBestemming": "Venlo",
-  "TreinSoort": "Intercity",
-  "Vervoerder": "NS",
-  "VertrekSpoor": {
-    "@text": "2",
-    "wijziging": "false"
-  }
-}, {
   "RitNummer": "9636",
   "VertrekTijd": "2017-06-09T10:37:00+0200",
   "EindBestemming": "s-Hertogenbosch",
@@ -20,6 +8,9 @@
   "VertrekSpoor": {
     "@text": "3",
     "wijziging": "false"
+  },
+  "Opmerkingen": {
+    "Opmerking": "Rijdt vandaag niet"
   }
 }, {
   "RitNummer": "13538",
@@ -97,6 +88,16 @@
     "wijziging": "false"
   }
 }, {
+  "RitNummer": "13535",
+  "VertrekTijd": "2017-06-09T12:04:00+0200",
+  "EindBestemming": "Venlo",
+  "TreinSoort": "Intercity",
+  "Vervoerder": "NS",
+  "VertrekSpoor": {
+    "@text": "2",
+    "wijziging": "false"
+  }
+},{
   "RitNummer": "13535",
   "VertrekTijd": "2017-06-09T12:04:00+0200",
   "EindBestemming": "Venlo",
