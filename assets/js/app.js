@@ -17,7 +17,7 @@ $(document).ready(function(e) {
                     }else {
                         content += '<td class="tijd">' + res  + '</td>';
                     }
-                    content += '<td><img class="logo" src="assets/img/' + tijd.Vervoerder + '.png"></td>';
+                    content += '<td><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"></td>';
                     content += '<td>' + tijd.TreinSoort + '</td>';
                     if (Object.values(tijd.VertrekSpoor)[0] === "false"){
                         content += '<td> </td>';
