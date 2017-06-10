@@ -32,8 +32,7 @@ $town = $ini[town];
             <td class="to_via">Eindbestemming</td>
             <td class="spoorh">Spoor</td>
             <td class="vervoer">Vervoerder</td>
-            <td>Opmerkingen</td>
-            <td class="clock"><i class="fa fa-clock-o" aria-hidden="true"></i> <span id="hours">00</span><span id="colon">:</span><span id="minutes">00</span> <?php echo ucfirst($town);?></td>
+            <td>Opmerkingen <span class="clock"><i class="fa fa-clock-o" aria-hidden="true"></i> <span id="hours">00</span><span id="colon">:</span><span id="minutes">00</span> <?php echo ucfirst($town);?></span></td>
         </tr>
         </thead>
         <tbody id="departure">
