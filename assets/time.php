@@ -31,7 +31,7 @@ $bus_array = array();
 foreach ($bus_data['BTMF'] as $key => $bus_value) {
     $bus_array[] = $bus_value['Departures'][0];
 }
-$train_data = array_slice($train_data,0,3);
+$train_data = array_slice($train_data,0,4);
 function dus_compare($item1, $item2)
 {
     $ts1 = strtotime($item1['PlannedDeparture']);
@@ -39,7 +39,7 @@ function dus_compare($item1, $item2)
     return $ts1 - $ts2;
 };
 usort($bus_array, 'dus_compare');
-$bus_array = array_slice($bus_array,0,3);
+$bus_array = array_slice($bus_array,0,4);
 foreach ($bus_array as $key => $bus_value) {
     //print_r($bus_value);
     if(is_null($bus_value)) {
