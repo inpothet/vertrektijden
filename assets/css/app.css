@@ -27,10 +27,9 @@ td, th {
     width: 45%;
     font-weight: bold;
     vertical-align: top;
-    font-size: 110%;
+    font-size: 150%;
     font-family: 'Open Sans', sans-serif;
     color: #009;
-    padding-left: 10px;
     vertical-align: top;
 }
 .spoor{
@@ -43,8 +42,7 @@ td, th {
     width: 40px;
     text-align: center;
     height: 30px;
-    max-width: 40px;
-    font-size: 150%;
+    font-size: 130%;
     font-family: 'Open Sans', sans-serif;
     margin: 0 auto;}
 #departure td.spoort{
@@ -56,16 +54,16 @@ td, th {
 }
 #departure td.tijd{
     text-align: center;
-    width: 7%;
+    width: 10%;
     min-width: 75px;
     font-weight: bold;
     vertical-align: top;
-    font-size: 110%;
+    font-size: 150%;
     font-family: 'Open Sans', sans-serif;
     color: #009;
 }
 #departure td.vervoer{
-    font-size: 110%;
+    font-size: 150%;
     font-weight: bold;
     color: #000099;
     font-family: 'Open Sans', sans-serif;
@@ -77,13 +75,16 @@ td, th {
     vertical-align:middle
 }
 .clock{
+    padding: 3px;
+    float: right;
     font-weight: bold;
-    background-color: #000099;
-    color: white;
-    text-align: center;
     font-family: 'Open Sans', sans-serif;
-    width: 150px;
-    float:right
+    padding: 3px;
+    color: #fff;
+    background-color: #009;
+    margin: 0;
+    text-align: left;
+    width: auto;
 }
 /* Header CSS*/
 #header{
@@ -91,25 +92,22 @@ td, th {
 }
 #header td.to_via{
     width: 45%;
-    padding-left: 10px;
     font-family: 'Open Sans', sans-serif;
 }
 #header td.spoorh{
-    width: 50px;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-}
-#header td.type{
-    width: 60px;
+    
+    width: 10%;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
 }
 #header td.vervoer{
-    width: 120px;
+    width: 25%;
     font-family: 'Open Sans', sans-serif;
     padding-left: 10px;
 }
 #header td.tijd{
+    width: 10%;
+    min-width:75px;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
 }

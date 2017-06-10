@@ -29,10 +29,10 @@ $town = $ini[town];
         <thead>
         <tr id="header" class="even">
             <td class="tijd">Tijd</td>
-            <td class="to_via">Eindbestemming</td>
+            <td class="to_via">Naar / Opmerkingen</td>
             <td class="spoorh">Spoor</td>
             <td class="vervoer">Vervoerder</td>
-            <td>Opmerkingen <span class="clock"><i class="fa fa-clock-o" aria-hidden="true"></i> <span id="hours">00</span><span id="colon">:</span><span id="minutes">00</span> <?php echo ucfirst($town);?></span></td>
+            <td><span class="clock"><i class="fa fa-clock-o" aria-hidden="true"></i> <span id="hours">00</span><span id="colon">:</span><span id="minutes">00</span></span></td>
         </tr>
         </thead>
         <tbody id="departure">

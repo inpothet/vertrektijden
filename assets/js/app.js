@@ -17,10 +17,8 @@ $(document).ready(function(e) {
                         if (typeof(tijd.VertrekVertragingTekst) != "undefined"){
                             var vert = tijd.VertrekVertragingTekst;
                             var ver = vert.slice(0,2);
-                            content += '<td class="tijd">' + res + ' <small><red>'+ ver + '</red></small></td>';
-                        }else {
-                            content += '<td class="tijd">' + res  + '</td>';
                         }
+                        content += '<td class="tijd">' + res  + '</td>';
                         if (typeof (tijd.RouteTekst) != "undefined"){
                             $text = 'via: '+ tijd.RouteTekst;
                         }
@@ -33,12 +31,17 @@ $(document).ready(function(e) {
                         }else {
                             content += '<td class="spoort"><div class="spoor">' + Object.values(tijd.VertrekSpoor)[0]  + '</div></td>';
                         }
-                        content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span></td>';
-                        if (typeof(tijd.Opmerkingen) != "undefined"){
-                            content += '<td>' + tijd.Opmerkingen.Opmerking + '</td>';
-                        }else {
-                            content += '<td> </td>';
+                        if (typeof(ver) != "undefined"){
+                         content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span><br><span><small>'+ ver +' Minuten</small></span></td>';   
+                        }else{
+                            content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span></td>';
                         }
+                        if (typeof(tijd.Opmerkingen) != "undefined"){
+                            var opmerking = tijd.Opmerkingen.Opmerking;
+                        }else {
+                            var opmerking = "";
+                        }
+                        content += '<td></td>';
                         content += '</tr>';
                         $(content).appendTo("#departure");
                     }else {
@@ -48,10 +51,8 @@ $(document).ready(function(e) {
                         if (typeof(tijd.VertrekVertragingTekst) != "undefined"){
                             var vert = tijd.VertrekVertragingTekst;
                             var ver = vert.slice(0,2);
-                            content += '<td class="tijd">' + res + ' <small><red>'+ ver + '</red></small></td>';
-                        }else {
-                            content += '<td class="tijd">' + res  + '</td>';
                         }
+                        content += '<td class="tijd">' + res  + '</td>';
                         if (typeof (tijd.RouteTekst) != "undefined"){
                             $text = 'via: '+ tijd.RouteTekst;
                         }
@@ -64,17 +65,22 @@ $(document).ready(function(e) {
                         }else {
                             content += '<td class="spoort"><div class="spoor">' + Object.values(tijd.VertrekSpoor)[0]  + '</div></td>';
                         }
-                        content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span></td>';
-                        if (typeof(tijd.Opmerkingen) != "undefined"){
-                            content += '<td>' + tijd.Opmerkingen.Opmerking + '</td>';
-                        }else {
-                            content += '<td> </td>';
+                        if (typeof(ver) != "undefined"){
+                         content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span><br><span><small>'+ ver +' Minuten</small></span></td>';   
+                        }else{
+                            content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span></td>';
                         }
+                        if (typeof(tijd.Opmerkingen) != "undefined"){
+                            var opmerking = tijd.Opmerkingen.Opmerking;
+                        }else {
+                            var opmerking = "";
+                        }
+                        content += '<td></td>';
                         content += '</tr>';
                         $(content).appendTo("#departure");
                     }
 
-                    return i<10;
+                    return i<9;
                 });
             }
         })

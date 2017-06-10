@@ -20,10 +20,10 @@ $opts = array(
 );
 $context = stream_context_create($opts);
 // request Json for train and bus
-$train = file_get_contents("https://api.vertrektijd.info/ns/_departures?station=$station", false,$context);
-$bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$town/$stop", false,$context);
-//$bus = file_get_contents("json/bus.json", false,$context);
-//$train = file_get_contents("json/train.json", false,$context);
+//$train = file_get_contents("https://api.vertrektijd.info/ns/_departures?station=$station", false,$context);
+//$bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$town/$stop", false,$context);
+$bus = file_get_contents("json/bus.json", false,$context);
+$train = file_get_contents("json/train.json", false,$context);
 // Decode requested json
 $train_data = json_decode($train, true);
 $bus_data = json_decode($bus, true);
@@ -31,7 +31,11 @@ $bus_array = array();
 foreach ($bus_data['BTMF'] as $key => $bus_value) {
     $bus_array[] = $bus_value['Departures'][0];
 }
-$train_data = array_slice($train_data,0,4);
+foreach ($bus_data['BTMF'] as $key => $bus_value) {
+    $bus_array[] = $bus_value['Departures'][1];
+}
+//print_r($bus_data['BTMF']);
+$train_data = array_slice($train_data,0,7);
 function dus_compare($item1, $item2)
 {
     $ts1 = strtotime($item1['PlannedDeparture']);
@@ -39,7 +43,7 @@ function dus_compare($item1, $item2)
     return $ts1 - $ts2;
 };
 usort($bus_array, 'dus_compare');
-$bus_array = array_slice($bus_array,0,4);
+$bus_array = array_slice($bus_array,0,14);
 foreach ($bus_array as $key => $bus_value) {
     //print_r($bus_value);
     if(is_null($bus_value)) {
