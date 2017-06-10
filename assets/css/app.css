@@ -9,6 +9,10 @@ red{color: red;
     background-color: #ffffff;
     color: #000099;
 }
+.tijden{
+    position: absolute; top: 0; bottom: 0; left: 0; right: 0;
+    width:100%;
+}
 #colon { visibility:hidden }
 /* Row CSS*/
 #departure td.to_via {
@@ -38,6 +42,9 @@ red{color: red;
 #departure td.spoort{
     width: 60px;
     height: 60px;
+}
+#departure{
+    height: 50%;
 }
 #departure td.tijd{
     text-align: center;
@@ -71,6 +78,7 @@ red{color: red;
 }
 /* Header CSS*/
 #header{
+    height: 10%;
 }
 #header td.to_via{
     width: 45%;
