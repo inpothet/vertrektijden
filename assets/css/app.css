@@ -4,10 +4,12 @@ red{color: red;
 .even{
     background-color: #d5e5ff;
     color: #000099;
+    height: 50px;
 }
 .odd{
     background-color: #ffffff;
     color: #000099;
+    height: 50px;
 }
 table {
     border-collapse: collapse;
@@ -23,9 +25,10 @@ td, th {
 .end{
     height: 25px;
     background-color: #d5e5ff;
+    margin-top: -25px
 }
 .tijden_div{
-    height: 50%;
+    height: 960px;
 }
 .tijden{
      width:100%;
@@ -34,7 +37,7 @@ td, th {
     background-color: #000099;
     color: white;
     width: 100%;
-    vertical-align: bottom;
+    height: 25px;
 }
 #colon { visibility:hidden }
 /* Row CSS*/
@@ -82,7 +85,6 @@ td, th {
     font-weight: bold;
     color: #000099;
     font-family: 'Open Sans', sans-serif;
-    padding-left: 10px;
 }
 
 .logo{
@@ -104,6 +106,8 @@ td, th {
 /* Header CSS*/
 #header{
     height: 10%;
+    font-size: 120%;
+    font-weight: bold;
 }
 #header td.to_via{
     width: 45%;
@@ -118,7 +122,6 @@ td, th {
 #header td.vervoer{
     width: 25%;
     font-family: 'Open Sans', sans-serif;
-    padding-left: 10px;
 }
 #header td.tijd{
     width: 10%;
