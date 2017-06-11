@@ -41,5 +41,6 @@ $town = $ini[town];
     </table>
 </div>
 <div>
+    <img src="http://lorempixel.com/1080/960/food/">
 </div>
 <script src="assets/js/app.js"></script>
