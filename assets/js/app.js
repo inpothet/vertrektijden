@@ -52,5 +52,5 @@ $(document).ready(function(e) {
         })
     }
     get_json();
-    setInterval(get_json,100000);
+    setInterval(get_json,10000);
     });
