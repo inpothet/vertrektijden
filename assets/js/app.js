@@ -32,16 +32,17 @@ $(document).ready(function(e) {
                             content += '<td class="spoort"><div class="spoor">' + Object.values(tijd.VertrekSpoor)[0]  + '</div></td>';
                         }
                         if (typeof(ver) != "undefined"){
-                         content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span><br><span><small>'+ ver +' Minuten</small></span></td>';   
+                            content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span><br><div class="delay"><small>'+ ver +' Minuten</small></div></td>';
+                            content += '<td><div class="delay">&nbsp</div></td>';
                         }else{
                             content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span></td>';
+                            content += '<td></td>';
                         }
                         if (typeof(tijd.Opmerkingen) != "undefined"){
                             var opmerking = tijd.Opmerkingen.Opmerking;
                         }else {
                             var opmerking = "";
                         }
-                        content += '<td></td>';
                         content += '</tr>';
                         $(content).appendTo("#departure");
                     }else {
@@ -66,16 +67,19 @@ $(document).ready(function(e) {
                             content += '<td class="spoort"><div class="spoor">' + Object.values(tijd.VertrekSpoor)[0]  + '</div></td>';
                         }
                         if (typeof(ver) != "undefined"){
-                         content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span><br><span><small>'+ ver +' Minuten</small></span></td>';   
+                         content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span><br><div class="delay"><small>'+ ver +' Minuten</small></div></td>';
+                            content += '<td><div class="delay">&nbsp</div></td>';
                         }else{
                             content += '<td class="vervoer"><img class="logo" src="assets/img/' + tijd.Vervoerder.toLowerCase() + '.png"> <span>' + tijd.TreinSoort + '</span></td>';
+                            content += '<td></td>';
                         }
                         if (typeof(tijd.Opmerkingen) != "undefined"){
                             var opmerking = tijd.Opmerkingen.Opmerking;
                         }else {
                             var opmerking = "";
                         }
-                        content += '<td></td>';
+
+
                         content += '</tr>';
                         $(content).appendTo("#departure");
                     }

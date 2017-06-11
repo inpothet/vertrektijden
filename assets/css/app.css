@@ -12,14 +12,24 @@ red{color: red;
 table {
     border-collapse: collapse;
 }
-
+* {
+    padding: 0;
+    margin: 0 auto;
+}
 /* remove padding */
 td, th {
     padding: 0;
 }
 .tijden{
     width:100%;
-    top: 0; bottom: 0; left: 0; right: 0;
+    margin: 0;
+    padding: 0;
+}
+.delay{
+    background-color: #000099;
+    color: white;
+    width: 100%;
+    vertical-align: bottom;
 }
 #colon { visibility:hidden }
 /* Row CSS*/
