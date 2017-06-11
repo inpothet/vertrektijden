@@ -20,12 +20,11 @@ table {
 td, th {
     padding: 0;
 }
-.tijden{
-    width:100%;
-    margin: 0;
-    padding: 0;
-    height: 50%;
+.tijden_div{
 }
+.tijden{
+     width:100%;
+ }
 .delay{
     background-color: #000099;
     color: white;

@@ -24,7 +24,7 @@ $town = $ini[town];
         toggle=!toggle;
     },1000);
 </script>
-<div class="tijden">
+<div class="tijden_div">
     <table class="tijden">
         <thead>
         <tr id="header" class="even">

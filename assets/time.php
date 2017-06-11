@@ -20,10 +20,10 @@ $opts = array(
 );
 $context = stream_context_create($opts);
 // request Json for train and bus
-$train = file_get_contents("https://api.vertrektijd.info/ns/_departures?station=$station", false,$context);
-$bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$town/$stop", false,$context);
-//$bus = file_get_contents("json/bus.json", false,$context);
-//$train = file_get_contents("json/train.json", false,$context);
+//$train = file_get_contents("https://api.vertrektijd.info/ns/_departures?station=$station", false,$context);
+//$bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$town/$stop", false,$context);
+$bus = file_get_contents("json/bus.json", false,$context);
+$train = file_get_contents("json/train.json", false,$context);
 // Decode requested json
 $train_data = json_decode($train, true);
 $bus_data = json_decode($bus, true);
