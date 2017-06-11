@@ -1,7 +1,10 @@
 <?php
+// Outputting page to JSON
 header('Content-Type: application/json');
+
 // Load Config
 $ini = parse_ini_file('config/config.ini');
+
 // define config value's
 $station = $ini[station];
 $town = $ini[town];
@@ -10,6 +13,7 @@ $key = $ini[api_key];
 $version = $ini[version];
 $app = $ini[app_name];
 
+// Headers for departure request
 $opts = array(
     'http'=>array(
         'method'=>"GET",
@@ -18,15 +22,23 @@ $opts = array(
             "X-Vertrektijd-Client-Api-Key: $key\r\n"
     )
 );
+
+// Render headers for departure request
 $context = stream_context_create($opts);
-// request Json for train and bus
+
+// Request departure times for train and bus (Real Time)
 //$train = file_get_contents("https://api.vertrektijd.info/ns/_departures?station=$station", false,$context);
 //$bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$town/$stop", false,$context);
+
+// Request departure times for train and bus (Testing)
 $bus = file_get_contents("json/bus.json", false,$context);
 $train = file_get_contents("json/train.json", false,$context);
+
 // Decode requested json
 $train_data = json_decode($train, true);
 $bus_data = json_decode($bus, true);
+
+// Sorting bus data to array
 $bus_array = array();
 foreach ($bus_data['BTMF'] as $key => $bus_value) {
     $bus_array[] = $bus_value['Departures'];
@@ -41,14 +53,23 @@ foreach($bus_array as $key => $bus_value){
 foreach($bus_array as $key => $bus_value){
      $bus_array1[] = $bus_value[2];
 }
-//print_r($bus_data['BTMF']);
-function dus_compare($item1, $item2)
+// Bus departure comparison
+function bus_departure_compare($item1, $item2)
 {
     $ts1 = strtotime($item1['PlannedDeparture']);
     $ts2 = strtotime($item2['PlannedDeparture']);
     return $ts1 - $ts2;
 };
-usort($bus_array, 'dus_compare');
+
+// Final departure comparison
+function final_departure_compare($item1, $item2)
+{
+    $ts1 = strtotime($item1['VertrekTijd']);
+    $ts2 = strtotime($item2['VertrekTijd']);
+    return $ts1 - $ts2;
+}
+
+usort($bus_array, 'bus_departure_compare');
 //$bus_array = array_slice($bus_array,0,14);
 foreach ($bus_array1 as $key => $bus_value) {
     //print_r($bus_value);
@@ -88,13 +109,12 @@ foreach ($bus_array1 as $key => $bus_value) {
         }
     }
     }
-function do_compare($item1, $item2)
-{
-    $ts1 = strtotime($item1['VertrekTijd']);
-    $ts2 = strtotime($item2['VertrekTijd']);
-    return $ts1 - $ts2;
-}
-usort($train_data, 'do_compare');
-$json = json_encode($train_data);
+
+// Sort departure times on time
+usort($train_data, 'final_departure_compare');
+
+// Encode array to JSON
+$json = json_encode($train_data, JSON_PRETTY_PRINT);
+
+// Print JSON
 echo $json;
-//print_r(array_filter($bus_array1));
