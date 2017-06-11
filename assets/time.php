@@ -29,13 +29,19 @@ $train_data = json_decode($train, true);
 $bus_data = json_decode($bus, true);
 $bus_array = array();
 foreach ($bus_data['BTMF'] as $key => $bus_value) {
-    $bus_array[] = $bus_value['Departures'][0];
+    $bus_array[] = $bus_value['Departures'];
 }
-foreach ($bus_data['BTMF'] as $key => $bus_value) {
-    $bus_array[] = $bus_value['Departures'][1];
+$bus_array1 = array();
+foreach($bus_array as $key => $bus_value){
+     $bus_array1[] = $bus_value[0];
+}
+foreach($bus_array as $key => $bus_value){
+     $bus_array1[] = $bus_value[1];
+}
+foreach($bus_array as $key => $bus_value){
+     $bus_array1[] = $bus_value[2];
 }
 //print_r($bus_data['BTMF']);
-$train_data = array_slice($train_data,0,7);
 function dus_compare($item1, $item2)
 {
     $ts1 = strtotime($item1['PlannedDeparture']);
@@ -43,8 +49,8 @@ function dus_compare($item1, $item2)
     return $ts1 - $ts2;
 };
 usort($bus_array, 'dus_compare');
-$bus_array = array_slice($bus_array,0,14);
-foreach ($bus_array as $key => $bus_value) {
+//$bus_array = array_slice($bus_array,0,14);
+foreach ($bus_array1 as $key => $bus_value) {
     //print_r($bus_value);
     if(is_null($bus_value)) {
         
@@ -91,4 +97,4 @@ function do_compare($item1, $item2)
 usort($train_data, 'do_compare');
 $json = json_encode($train_data);
 echo $json;
-//print_r($bus_array);
+//print_r(array_filter($bus_array1));

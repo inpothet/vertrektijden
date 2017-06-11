@@ -20,7 +20,12 @@ table {
 td, th {
     padding: 0;
 }
+.end{
+    height: 25px;
+    background-color: #d5e5ff;
+}
 .tijden_div{
+    height: 50%;
 }
 .tijden{
      width:100%;

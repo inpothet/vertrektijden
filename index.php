@@ -39,6 +39,7 @@ $town = $ini[town];
 
         </tbody>
     </table>
+    <div class="end">&nbsp</div>
 </div>
 <div>
     <img src="http://lorempixel.com/1080/960/food/">
