@@ -69,25 +69,37 @@ function final_departure_compare($item1, $item2)
     return $ts1 - $ts2;
 }
 
+// Sort bus array based on departure time
 usort($bus_array, 'bus_departure_compare');
-//$bus_array = array_slice($bus_array,0,14);
+
+// make the final array for the bus
 foreach ($bus_array1 as $key => $bus_value) {
-    //print_r($bus_value);
     if(is_null($bus_value)) {
         
     }else{
+        // Create array for Line Number
         $bus_number = array('@text' => $bus_value['LineNumber'], 'wijziging' => "false");
+
+        // Seperate bus name if it goes though another place
         $bus_dest = explode(" via ", $bus_value['Destination']);
+
+        // Check if bus goes through another place and if so added it to route
         $bus_via = $bus_dest[1];
         if (empty($bus_via)) {
             $bus_text = $bus_value['LineName'];
         } else {
             $bus_text = substr($bus_value['LineName'], 8, 8) . ", " . $bus_dest[1];
         }
+
+        // Clean up Route
         $bus_text = str_replace(' - ', ', ', $bus_text);
+
+        // Calculate if there is a Delay
         $start_date = new DateTime($bus_value['ExpectedDeparture']);
         $since_start = $start_date->diff(new DateTime($bus_value['PlannedDeparture']));
         $delay = $since_start->i;
+
+        // If there is a Delay create other array than if not
         if ($delay > 0) {
             $train_data[] = array('RitNummer' => $bus_value['DestinationCode'],
                 'VertrekTijd' => $bus_value['PlannedDeparture'] . "+0200",

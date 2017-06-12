@@ -52,5 +52,25 @@ $(document).ready(function(e) {
         })
     }
     get_json();
-    setInterval(get_json,10000);
+
+    // Update tables every 10 Seconds
+    setInterval(get_json,100000);
+
+    // Code for Clock
+    var toggle = true;
+    setInterval(function() {
+        var d = new Date().toLocaleTimeString('en-US', { hour12: false, hour: 'numeric', minute: 'numeric' });
+        var parts = d.split(":");
+        $('#hours').text(parts[0]);
+        $('#minutes').text(parts[1]);
+        $("#colon").css({ visibility: toggle?"visible":"hidden"});
+        toggle=!toggle;
+    },1000);
+
+    // Flash the delay message every 3 seconds
+    var delay_toggle = true;
+    setInterval(function() {
+        $(".delay").css({ visibility: delay_toggle?"visible":"hidden"});
+        delay_toggle=!delay_toggle;
+    },2500);
     });

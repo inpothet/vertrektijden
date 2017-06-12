@@ -12,18 +12,7 @@ $town = $ini[town];
     <link href="assets/css/app.css" type="text/css" rel="stylesheet">
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-    var toggle = true;
-    setInterval(function() {
-        var d = new Date().toLocaleTimeString('en-US', { hour12: false, hour: 'numeric', minute: 'numeric' });
-        var parts = d.split(":");
-        $('#hours').text(parts[0]);
-        $('#minutes').text(parts[1]);
-        $("#colon").css({ visibility: toggle?"visible":"hidden"});
-        toggle=!toggle;
-    },1000);
-</script>
+<script src="assets/js/app.js"></script>
 <div class="tijden_div">
     <table class="tijden">
         <thead>
@@ -44,4 +33,4 @@ $town = $ini[town];
     <div class="end">&nbsp</div>
     <img src="http://lorempixel.com/1080/960/food/">
 </div>
-<script src="assets/js/app.js"></script>
+
