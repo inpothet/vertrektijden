@@ -27,12 +27,12 @@ $opts = array(
 $context = stream_context_create($opts);
 
 // Request departure times for train and bus (Real Time)
-//$train = file_get_contents("https://api.vertrektijd.info/ns/_departures?station=$station", false,$context);
-//$bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$town/$stop", false,$context);
+$train = file_get_contents("https://api.vertrektijd.info/ns/_departures?station=$station", false,$context);
+$bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$town/$stop", false,$context);
 
 // Request departure times for train and bus (Testing)
-$bus = file_get_contents("json/bus.json", false,$context);
-$train = file_get_contents("json/train.json", false,$context);
+//$bus = file_get_contents("json/bus.json", false,$context);
+//$train = file_get_contents("json/train.json", false,$context);
 
 // Decode requested json
 $train_data = json_decode($train, true);
@@ -45,13 +45,7 @@ foreach ($bus_data['BTMF'] as $key => $bus_value) {
 }
 $bus_array1 = array();
 foreach($bus_array as $key => $bus_value){
-     $bus_array1[] = $bus_value[0];
-}
-foreach($bus_array as $key => $bus_value){
-     $bus_array1[] = $bus_value[1];
-}
-foreach($bus_array as $key => $bus_value){
-     $bus_array1[] = $bus_value[2];
+     $bus_array1 = array_merge($bus_array1,$bus_value);
 }
 // Bus departure comparison
 function bus_departure_compare($item1, $item2)
