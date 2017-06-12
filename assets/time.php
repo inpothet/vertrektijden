@@ -41,33 +41,19 @@ $bus_data = json_decode($bus, true);
 // Sorting bus data to array
 $bus_array = array();
 foreach ($bus_data['BTMF'] as $key => $bus_value) {
-    $bus_array[] = $bus_value['Departures'];
+    $bus_array = array_merge($bus_array,$bus_value['Departures']);
 }
-$bus_array1 = array();
-foreach($bus_array as $key => $bus_value){
-     $bus_array1 = array_merge($bus_array1,$bus_value);
-}
-// Bus departure comparison
-function bus_departure_compare($item1, $item2)
-{
-    $ts1 = strtotime($item1['PlannedDeparture']);
-    $ts2 = strtotime($item2['PlannedDeparture']);
-    return $ts1 - $ts2;
-};
 
 // Final departure comparison
-function final_departure_compare($item1, $item2)
+function departure_compare($item1, $item2)
 {
     $ts1 = strtotime($item1['VertrekTijd']);
     $ts2 = strtotime($item2['VertrekTijd']);
     return $ts1 - $ts2;
 }
 
-// Sort bus array based on departure time
-usort($bus_array, 'bus_departure_compare');
-
 // make the final array for the bus
-foreach ($bus_array1 as $key => $bus_value) {
+foreach ($bus_array as $key => $bus_value) {
     if(is_null($bus_value)) {
         
     }else{
@@ -114,13 +100,14 @@ foreach ($bus_array1 as $key => $bus_value) {
                 'VertrekSpoor' => $bus_number);
         }
     }
-    }
+}
 
 // Sort departure times on time
-usort($train_data, 'final_departure_compare');
+usort($train_data, 'departure_compare');
 
 // Encode array to JSON
 $json = json_encode($train_data, JSON_PRETTY_PRINT);
 
 // Print JSON
 echo $json;
+

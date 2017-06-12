@@ -54,7 +54,7 @@ $(document).ready(function(e) {
     get_json();
 
     // Update tables every 10 Seconds
-    setInterval(get_json,100000);
+    setInterval(get_json,10000);
 
     // Code for Clock
     var toggle = true;
