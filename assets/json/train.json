@@ -1,6 +1,8 @@
 [{
   "RitNummer": "9636",
   "VertrekTijd": "2017-06-09T10:37:00+0200",
+  "VertrekVertraging": "PT5M",
+  "VertrekVertragingTekst": "+5 mins",
   "EindBestemming": "s-Hertogenbosch",
   "TreinSoort": "Sprinter",
   "RouteTekst": "Helmond, Eindhoven, Boxtel",
@@ -53,6 +55,8 @@
 }, {
   "RitNummer": "13540",
   "VertrekTijd": "2017-06-09T11:25:00+0200",
+  "VertrekVertraging": "PT5M",
+  "VertrekVertragingTekst": "+5 mins",
   "EindBestemming": "Schiphol Airport",
   "TreinSoort": "Intercity",
   "RouteTekst": "Helmond, Eindhoven, Utrecht C",
@@ -64,6 +68,8 @@
 }, {
   "RitNummer": "13533",
   "VertrekTijd": "2017-06-09T11:34:00+0200",
+  "VertrekVertraging": "PT5M",
+  "VertrekVertragingTekst": "+5 mins",
   "EindBestemming": "Venlo",
   "TreinSoort": "Intercity",
   "Vervoerder": "NS",
@@ -74,6 +80,8 @@
 }, {
   "RitNummer": "9640",
   "VertrekTijd": "2017-06-09T11:37:00+0200",
+  "VertrekVertraging": "PT5M",
+  "VertrekVertragingTekst": "+5 mins",
   "EindBestemming": "s-Hertogenbosch",
   "TreinSoort": "Sprinter",
   "RouteTekst": "Helmond, Eindhoven, Boxtel",
@@ -85,6 +93,8 @@
 }, {
   "RitNummer": "13542",
   "VertrekTijd": "2017-06-09T11:55:00+0200",
+  "VertrekVertraging": "PT5M",
+  "VertrekVertragingTekst": "+5 mins",
   "EindBestemming": "Schiphol Airport",
   "TreinSoort": "Intercity",
   "RouteTekst": "Helmond, Eindhoven, Utrecht C",

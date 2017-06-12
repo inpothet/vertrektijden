@@ -28,7 +28,8 @@ td, th {
     margin-top: -25px
 }
 .tijden_div{
-    height: 960px;
+    height: 935px;
+    border-bottom: 25px solid #d5e5ff;
 }
 .tijden{
      width:100%;
@@ -36,8 +37,12 @@ td, th {
 .delay{
     background-color: #000099;
     color: white;
+    font-size: x-large;
+    vertical-align:middle;
     width: 100%;
-    visibility:hidden
+    visibility:hidden;
+    height: 25px;
+    line-height: 25px;
 }
 #colon { visibility:hidden }
 /* Row CSS*/
