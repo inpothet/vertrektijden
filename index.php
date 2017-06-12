@@ -30,7 +30,6 @@ $town = $ini[town];
     </table>
 </div>
 <div>
-    <div class="end">&nbsp</div>
     <img src="http://lorempixel.com/1080/960/food/">
 </div>
 
