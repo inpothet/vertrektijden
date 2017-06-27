@@ -28,6 +28,7 @@ $context = stream_context_create($opts);
 
 // Request departure times for train and bus (Real Time)
 $train = file_get_contents("https://api.vertrektijd.info/ns/_departures?station=$station", false,$context);
+$train_comments = file("https://api.vertrektijd.info/ns/_disruptions?station=$station&actual=false", false,$context);
 $bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$town/$stop", false,$context);
 
 // Request departure times for train and bus (Testing)
@@ -36,6 +37,7 @@ $bus = file_get_contents("https://api.vertrektijd.info/departures/_nametown/$tow
 
 // Decode requested json
 $train_data = json_decode($train, true);
+$train_comment = json_decode($train_comments[0], true);
 $bus_data = json_decode($bus, true);
 
 // Sorting bus data to array
@@ -104,10 +106,16 @@ foreach ($bus_array as $key => $bus_value) {
 
 // Sort departure times on time
 usort($train_data, 'departure_compare');
+if(!empty($train_comment["Storingen"][Ongepland])){
+    $train_data = array_slice($train_data, 0, 14);
+    array_push($train_data, $train_comment[Storingen][Ongepland]);
+}else{
+    $train_data = array_slice($train_data, 0, 15);
+}
 
 // Encode array to JSON
-$json = json_encode($train_data, JSON_PRETTY_PRINT);
-
+$json_departure = json_encode($train_data, JSON_PRETTY_PRINT);
+$json_comment = json_encode($train_comment["Storingen"]["Ongepland"]);
 // Print JSON
-echo $json;
+echo $json_departure;
 

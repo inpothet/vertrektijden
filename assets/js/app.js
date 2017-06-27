@@ -29,8 +29,17 @@ $(document).ready(function(e) {
                         }
                         if (typeof(tijd.Opmerkingen) != "undefined"){
                             var opmerking = tijd.Opmerkingen.Opmerking;
+                            console.log(tijd.Opmerkingen.Opmerking);
+                            $opmerking = opmerking;
                         }
+                        else{
+                           $opmerking = ""; 
+                        }
+                        if($opmerking){
+                            content += '<td class="to_via">' + tijd.EindBestemming + '<br><div class="opmerking"><small>'+ $opmerking +'</small></div></td>';
+                        }else{
                         content += '<td class="to_via">' + tijd.EindBestemming + '<br><small>'+ $text +'</small></td>';
+                        }
                         if (Object.values(tijd.VertrekSpoor)[0] === "false"){
                             content += '<td> </td>';
                         }else {
@@ -46,7 +55,6 @@ $(document).ready(function(e) {
                         $(content).appendTo("#departure");
                     
 
-                    return i<14;
                 });
             }
         })
